@@ -322,24 +322,71 @@ let day3Input = [['.', '.', '.', '.', '.', '.', '.', '#', '.', '.', '.', '.', '.
 ['.', '.', '#', '.', '.', '.', '#', '.', '.', '.', '#', '.', '#', '.', '.', '.', '.', '.', '.', '.', '#', '.', '.', '.', '.', '#', '.', '.', '.', '#', '.',],
 ['.', '.', '.', '.', '.', '.', '#', '#', '.', '#', '#', '#', '.', '.', '#', '#', '.', '#', '.', '#', '#', '#', '.', '.', '.', '.', '.', '.', '#', '.', '#',]];
 
+
+let testInput = [['.', '.', '#', '#', '.', '.', '.', '.', '.', '.', '.',],
+['#', '.', '.', '.', '#', '.', '.', '.', '#', '.', '.',],
+['.', '#', '.', '.', '.', '.', '#', '.', '.', '#', '.',],
+['.', '.', '#', '.', '#', '.', '.', '.', '#', '.', '#',],
+['.', '#', '.', '.', '.', '#', '#', '.', '.', '#', '.',],
+['.', '.', '#', '.', '#', '#', '.', '.', '.', '.', '.',],
+['.', '#', '.', '#', '.', '#', '.', '.', '.', '.', '#',],
+['.', '#', '.', '.', '.', '.', '.', '.', '.', '.', '#',],
+['#', '.', '#', '#', '.', '.', '.', '#', '.', '.', '.',],
+['#', '.', '.', '.', '#', '#', '.', '.', '.', '.', '#',],
+['.', '#', '.', '.', '#', '.', '.', '.', '#', '.', '#',]];
 let step: number = 3;
+
+let steps = [
+    [1, 1],
+    [1, 3],
+    [1, 5],
+    [1, 7],
+    [2, 1],
+];
+
+
 
 let numberOfTrees: number = 0;
 
-for (let index = 0; index < day3Input.length; index++) {
-    const element = day3Input[index];
+let numberOfTreesForAllSteps: any = [];
 
-    const lengthOfRow = element.length;
+for (let i = 0; i < steps.length; i++) {
+    const step = steps[i];
+    numberOfTrees = 0;
 
-    const currentStep = index * 3;
+    for (let index = 0; index < day3Input.length; index = index + step[0]) {
+        const element = day3Input[index];
 
-    const position = currentStep % lengthOfRow;
+        const lengthOfRow = element.length;
 
-    const charAtCurrentPosition = element[position];
+        const currentStep = Math.floor(index / step[0]) * step[1];
 
-    if (charAtCurrentPosition === '#') {
-        numberOfTrees++;
+        const position = currentStep % lengthOfRow;
+
+        const charAtCurrentPosition = element[position];
+
+        if (charAtCurrentPosition === '#') {
+            numberOfTrees++;
+        }
     }
+
+    numberOfTreesForAllSteps.push(numberOfTrees);
 }
 
-console.log(numberOfTrees);
+
+
+console.log(numberOfTreesForAllSteps);
+
+let result: number = 0;
+
+for (let index = 0; index < numberOfTreesForAllSteps.length; index++) {
+    const element = numberOfTreesForAllSteps[index];
+    if (index === 0) {
+        result = element;
+    } else {
+        result = element * result;
+    }
+
+}
+
+console.log(result);
