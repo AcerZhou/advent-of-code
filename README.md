@@ -14,6 +14,16 @@ Install [ts-node](https://www.npmjs.com/package/ts-node) globally
     npm install -g ts-node
 ```
 
+Install Modules
+```
+    npm install
+```
+
+Run Test
+```
+    npm test
+```
+
 Run Code
 ```
     cd 2020
