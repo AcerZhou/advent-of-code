@@ -1,0 +1,23 @@
+{
+  "name": "advent-of-code-2020",
+  "version": "1.0.0",
+  "description": "Code challenges for advent of code 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "advert-of-code",
+    "2020"
+  ],
+  "author": "Acer Zhou",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.20",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
+  }
+}
