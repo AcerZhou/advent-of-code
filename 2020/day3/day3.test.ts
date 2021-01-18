@@ -1,17 +1,17 @@
 import { testInput } from './input';
 import { partOne, partTwo } from './index';
 
-describe('day 1 test', () => {
+describe('day 3 test', () => {
     test('sanctity check', () => {
         expect(true).toBe(true);
     });
-    test('PartOne should return 514579', () => {
+    test('PartOne should return 7', () => {
         let result = partOne(testInput);
-        expect(result).toBe(514579);
+        expect(result).toBe(7);
     });
-    test('PartTwo should return 241861950', () => {
+    test('PartTwo should return 336', () => {
         let result = partTwo(testInput);
-        expect(result).toBe(241861950);
+        expect(result).toBe(336);
     });
 
 });

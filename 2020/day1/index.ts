@@ -1,13 +1,7 @@
 import { day1Input } from './input';
 
-export const PartOne = (input) => {
-    input.sort((a, b) => a - b);
-
-    let hashTable = {};
-
-    input.forEach(i => {
-        hashTable[i] = i;
-    });
+export const partOne = (input) => {
+    let hashTable = createHashTable(input);
 
     let result: number[] = [];
 
@@ -20,27 +14,15 @@ export const PartOne = (input) => {
         }
     });
 
-    let finalResult = 0;
-    for (let i = 0; i < result.length; i++) {
-        const element = result[i];
-        if (finalResult === 0) {
-            finalResult = element;
-        } else {
-            finalResult = finalResult * element;
-        }
-    }
+    console.log(result);
+
+    let finalResult: number = calculateFinalResult(result);
 
     return finalResult;
 };
 
-export const PartTwo = (input) => {
-    input.sort((a, b) => a - b);
-
-    let hashTable = {};
-
-    input.forEach(i => {
-        hashTable[i] = i;
-    });
+export const partTwo = (input) => {
+    let hashTable = createHashTable(input);
 
     let result: number[] = [];
 
@@ -57,6 +39,32 @@ export const PartTwo = (input) => {
         })
     });
 
+    console.log(result);
+
+    let finalResult: number = calculateFinalResult(result);
+
+    return finalResult;
+};
+
+console.log('Part 1 result should be:');
+
+console.log(partOne(day1Input));
+
+console.log('Part 2 result should be:');
+
+console.log(partTwo(day1Input));
+
+
+function createHashTable(input: any) {
+    let hashTable = {};
+
+    input.forEach(i => {
+        hashTable[i] = i;
+    });
+    return hashTable;
+}
+
+function calculateFinalResult(result: number[]) {
     let finalResult = 0;
     for (let i = 0; i < result.length; i++) {
         const element = result[i];
@@ -66,14 +74,5 @@ export const PartTwo = (input) => {
             finalResult = finalResult * element;
         }
     }
-
     return finalResult;
-};
-
-console.log('Part 1 result should be:');
-
-console.log(PartOne(day1Input));
-
-console.log('Part 2 result should be:');
-
-console.log(PartTwo(day1Input));
+}
