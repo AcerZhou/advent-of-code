@@ -132,10 +132,12 @@ const IsPidValid = (pid) => {
 
 
 readInput('./day4Input').then(input => {
-
+    console.log('Part One result is: ');
+    console.log(partOne(input));
 });
 
 
 readInput('./day4Input').then(input => {
-
+    console.log('Part Two result is: ');
+    console.log(partTwo(input));
 });

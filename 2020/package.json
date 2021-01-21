@@ -4,7 +4,7 @@
   "description": "Code challenges for advent of code 2020",
   "main": "index.js",
   "scripts": {
-    "test": "jest --silent"
+    "test": "jest"
   },
   "keywords": [
     "advert-of-code",
